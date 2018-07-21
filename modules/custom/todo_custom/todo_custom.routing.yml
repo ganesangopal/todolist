@@ -1,0 +1,6 @@
+todo_custom.todostatus:
+  path: '/todo-status-update/{nid}'
+  defaults:
+    _controller: '\Drupal\todo_custom\Controller\TodoCustomController::updateTodoStatus'
+  requirements:
+    _user_is_logged_in: 'TRUE'

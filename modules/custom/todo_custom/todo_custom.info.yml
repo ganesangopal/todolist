@@ -1,0 +1,4 @@
+name: Todo List
+core: 8.x
+type: module
+description: Custom Module to add custom features to manage todo list.
