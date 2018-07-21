@@ -25,7 +25,7 @@ class TodoCustomController extends ControllerBase {
     if ($uid && $nid && is_numeric($nid)) {
       $node = Node::load($nid);
       $todo_status = $node->get('field_todo_status')->getValue();
-      if (!$todo_status) {
+      if (!$todo_status[0]['value']) {
         $node->field_todo_status[] = ['value' => 1];
         $node->save();
         drupal_set_message($this->t('Todo list of @node marked as completed successfully.', ['@node' => $node->title]), 'status', TRUE);
