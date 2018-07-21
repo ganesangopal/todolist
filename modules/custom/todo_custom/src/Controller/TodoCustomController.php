@@ -28,15 +28,13 @@ class TodoCustomController extends ControllerBase {
       if (!$todo_status) {
         $node->field_todo_status[] = ['value' => 1];
         $node->save();
-        $link = Link::fromTextAndUrl($this->t('TODO List'), Url::fromUri('internal:/todo-list'))->toString();
-        drupal_set_message($this->t('Todo list of @node marked as completed successfully.', ['@node' => $node->title, '@link' => $link]), 'status', TRUE);
+        drupal_set_message($this->t('Todo list of @node marked as completed successfully.', ['@node' => $node->title]), 'status', TRUE);
     }
     else {
-      $link = Link::fromTextAndUrl($this->t('TODO List'), Url::fromUri('internal:/todo-list'))->toString();
-      drupal_set_message($this->t('Todo list of @node already marked as completed.', ['@node' => $node->title, '@link' => $link]), 'status', TRUE);
+      drupal_set_message($this->t('Todo list of @node already marked as completed.', ['@node' => $node->title]), 'status', TRUE);
     }
   }
-    $url = Url::fromUri('internal:/home');
+    $url = Url::fromUri('internal:/todo-list');
     $response = new RedirectResponse($url->toString());
     $response->send();
   }
